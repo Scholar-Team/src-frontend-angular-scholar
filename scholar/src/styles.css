@@ -1,0 +1,40 @@
+/* Inicio do Default */
+
+.main-title h1 {
+  color: #222B68;
+}
+
+.main-title h2 {}
+
+.main-title h3 {}
+
+.main-subtitle h2 {
+  font-size: 0.8em;
+}
+
+.main-subtitle h4 {
+  font-size: 1.6em;
+  color: #222B68;
+}
+
+
+.texto-padrao p {
+  color: black;
+  text-align: justify;
+}
+
+/* Fim do Default */
+
+/* Inicio do Mobile */
+
+@media screen and (max-width: 992px) {
+  .reverse {
+    flex-direction: column-reverse;
+  }
+
+  #navbar>div>div .barra-menu ul li {
+    margin: 10px 10px;
+  }
+}
+
+/* Fim do Mobile */

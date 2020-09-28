@@ -1,0 +1,20 @@
+/* Inicio do Footer */
+
+#footer {
+  background-color: #222B68;
+}
+
+#footer>div {}
+
+#footer>div>div {}
+
+#footer>div>div .logo-footer {
+  margin: 25px auto;
+  text-align: center;
+}
+
+#footer>div>div .logo-footer img {
+  width: 50%;
+}
+
+/* Inicio do Footer */
