@@ -1,10 +1,10 @@
-import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeModule } from '@modules/home/home.module';
 
 @NgModule({
   declarations: [
@@ -13,8 +13,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HomeModule
+  ],
+  exports: [
+
   ],
   providers: [
 
@@ -24,4 +27,4 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
 })
 
-export class AppModule {}
+export class AppModule { }

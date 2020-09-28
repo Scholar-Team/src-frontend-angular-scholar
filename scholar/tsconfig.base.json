@@ -7,6 +7,8 @@
       "@images/*": ["assets/images/*"],
       "@models/*": ["app/shared/models/*"],
       "@modules/*": ["app/modules/*"],
+      "@core/*": ["app/core/*"],
+      "@shared/*": ["app/shared/*"],
       "@co-services/*": ["app/core/services/*"],
       "@sh-services/*": ["app/shared/services/*"],
       "@sh-components/*": ["app/shared/components/*"],

@@ -12,18 +12,9 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./tsconfig.base.json"
     }
-  ],
-  "compilerOptions": {
-    "baseUrl": "src",
-    "paths": {
-      "@images/*": ["assets/images/*"],
-      "@models/*": ["app/shared/models/*"],
-      "@modules/*": ["app/modules/*"],
-      "@co-services/*": ["app/core/services/*"],
-      "@sh-services/*": ["app/shared/services/*"],
-      "@sh-components/*": ["app/shared/components/*"],
-      "@sh-directives/*": ["app/shared/directives/*"]
-    }
-  }
+  ]
 }
