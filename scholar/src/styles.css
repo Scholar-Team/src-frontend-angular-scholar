@@ -4,9 +4,11 @@
   color: #222B68;
 }
 
-.main-title h2 {}
+.main-title h2 {
+}
 
-.main-title h3 {}
+.main-title h3 {
+}
 
 .main-subtitle h2 {
   font-size: 0.8em;
@@ -16,7 +18,6 @@
   font-size: 1.6em;
   color: #222B68;
 }
-
 
 .texto-padrao p {
   color: black;
@@ -38,3 +39,6 @@
 }
 
 /* Fim do Mobile */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

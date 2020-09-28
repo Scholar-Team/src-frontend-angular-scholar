@@ -33,7 +33,8 @@
   transition: all ease .5s;
 }
 
-#navbar>div {}
+#navbar>div {
+}
 
 #navbar>div>div {
   justify-content: space-between;
@@ -116,7 +117,8 @@
   transition: all ease 0.5s;
 }
 
-#navbar>div>div .barra-menu ul li a:hover {}
+#navbar>div>div .barra-menu ul li a:hover {
+}
 
 #navbar>div>div .barra-menu ul li:last-child a:hover {
   color: #222b68;
