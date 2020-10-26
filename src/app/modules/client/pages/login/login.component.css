@@ -32,16 +32,3 @@
 
   text-align: center;
 }*/
-
-.main {
-  background-color: #222B68;
-  height: 100%;
-  width: 100%;
-}
-
-.bg-login-image {
-  background-image: url("../../../../../assets/images/ead.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
