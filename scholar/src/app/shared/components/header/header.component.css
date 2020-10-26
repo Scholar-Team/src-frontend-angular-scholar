@@ -102,10 +102,10 @@
 }
 
 #navbar>div>div .barra-menu ul li a {
-  color: black;
+  color: #151515;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.1em;
   text-decoration: none;
 }
 

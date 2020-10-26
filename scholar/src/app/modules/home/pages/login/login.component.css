@@ -1,0 +1,47 @@
+/*body {
+  font-family: "Lato", sans-serif;
+}
+
+.main-head {
+  height: 150px;
+  background: #FFF;
+}
+
+.sidenav {
+  height: 100vh;
+  background-color: #222B68;
+}
+
+.login-main-text {
+  padding: 60px;
+  color: #fff;
+}
+
+.login-main-text h2 {
+  font-weight: 300;
+}
+
+.btn-black {
+  background-color: #222B68 !important;
+  color: #fff;
+}
+
+.vertical-center {
+  height:100%;
+  width:100%;
+
+  text-align: center;
+}*/
+
+.main {
+  background-color: #222B68;
+  height: 100%;
+  width: 100%;
+}
+
+.bg-login-image {
+  background-image: url("../../../../../assets/images/ead.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+

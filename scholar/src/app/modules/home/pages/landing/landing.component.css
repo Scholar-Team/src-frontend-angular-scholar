@@ -13,6 +13,10 @@
   justify-content: center;
 }
 
+#slider>div .slider-text p {
+  text-align: center;
+}
+
 #slider>div .slider-text h1 {
   text-align: center;
   margin-bottom: 20px;
@@ -47,7 +51,7 @@
 }
 
 #projeto>div>div .box-logo img {
-  width: 100%;
+  width: 75%;
 }
 
 #projeto>div>div .box-projeto {
