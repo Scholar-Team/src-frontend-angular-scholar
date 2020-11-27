@@ -1,10 +1,10 @@
-import { GroupEntity } from './../entity/Group-entity';
-import { Group } from './../model/Group-model';
+import { RoleEntity } from '../entity/role-entity';
+import { Role } from '../model/role-model';
 import { Mapper } from '@core/utils/mapper-abstract';
 
-export class GroupMapper extends Mapper<Group, GroupEntity> {
+export class GroupMapper extends Mapper<Role, RoleEntity> {
 
-  entityToModel(param: GroupEntity): Group {
+  entityToModel(param: RoleEntity): Role {
     return {
       id: param.id,
       name: param.name,
@@ -12,7 +12,7 @@ export class GroupMapper extends Mapper<Group, GroupEntity> {
       persons: param.persons
     };
   }
-  modelToEntity(param: Group): GroupEntity {
+  modelToEntity(param: Role): RoleEntity {
     return {
       id: param.id,
       name: param.name,

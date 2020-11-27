@@ -13,7 +13,7 @@ export class PersonMapper extends Mapper<Person, PersonEntity> {
       cpf: param.cpf,
       telephones: param.telephones,
       address: param.address,
-      groups: param.groups
+      roles: param.roles
     };
   }
 
@@ -26,7 +26,7 @@ export class PersonMapper extends Mapper<Person, PersonEntity> {
       cpf: param.cpf,
       telephones: param.telephones,
       address: param.address,
-      groups: param.groups
+      roles: param.roles
     };
   }
 

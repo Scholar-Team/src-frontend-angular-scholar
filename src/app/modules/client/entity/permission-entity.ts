@@ -1,8 +1,8 @@
-import { GroupEntity } from './group-entity';
+import { RoleEntity } from './role-entity';
 
 export interface PermissionEntity {
   id?: number;
   name?: string;
   description?: string;
-  groups?: GroupEntity[];
+  roles?: RoleEntity[];
 }

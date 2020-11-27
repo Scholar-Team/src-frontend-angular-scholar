@@ -1,4 +1,5 @@
 import { Address } from './address-model';
+import { Role } from './role-model';
 import { Telephone } from './telephone-model';
 
 export interface Person {
@@ -10,5 +11,5 @@ export interface Person {
   cpf?: string;
   telephones?: Telephone[];
   address?: Address;
-  groups?: any[];
+  roles?: Role[];
 }

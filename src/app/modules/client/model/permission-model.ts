@@ -1,8 +1,8 @@
-import { Group } from './group-model';
+import { Role } from './role-model';
 
 export interface Permission {
   id?: number;
   name?: string;
   description?: string;
-  groups?: Group[];
+  roles?: Role[];
 }

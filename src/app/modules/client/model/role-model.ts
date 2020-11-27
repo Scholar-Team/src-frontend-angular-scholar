@@ -1,7 +1,7 @@
 import { Person } from './person-model';
 import { Permission } from './permission-model';
 
-export interface Group {
+export interface Role {
   id?: number;
   name?: string;
   permissions?: Permission[];

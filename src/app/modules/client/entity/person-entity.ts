@@ -1,3 +1,4 @@
+import { RoleEntity } from './role-entity';
 import { AddressEntity } from './address-entity';
 import { TelephoneEntity } from './telephone-entity';
 
@@ -10,6 +11,6 @@ export interface PersonEntity {
   cpf?: string;
   telephones?: TelephoneEntity[];
   address?: AddressEntity;
-  groups?: any[];
+  roles?: RoleEntity[];
 }
 
