@@ -1,48 +1,22 @@
 /* [Inicio do Default] */
 
-html, body {
-  height: 100%;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  font-family: Roboto,"Helvetica Neue", sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #444444;
 }
 
-.main-title h1 {
-  color: #222B68;
+a {
+  color: #fff;
+  text-decoration: none;
 }
 
-.main-title h2 {
-}
-
-.main-title h3 {
-}
-
-.main-subtitle h2 {
-  font-size: 0.8em;
-}
-
-.main-subtitle h4 {
-  font-size: 1.6em;
-  color: #222B68;
-}
-
-.texto-padrao p {
-  color: #202020;
-  text-align: justify;
+a:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
 /* [Fim do Default] */
-
-/* [Inicio do Mobile] */
-@media screen and (max-width: 992px) {
-  .reverse {
-    flex-direction: column-reverse;
-  }
-
-  #navbar>div>div .barra-menu ul li {
-    margin: 10px 10px;
-  }
-}
-/* [Fim do Mobile] */

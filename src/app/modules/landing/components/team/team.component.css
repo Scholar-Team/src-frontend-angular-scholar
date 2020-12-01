@@ -1,0 +1,59 @@
+.team {
+  margin: 3%;
+}
+
+.team .member {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.team h2 {
+  font-weight: 700;
+  font-size: 2.3em;
+  color: #222A68;
+}
+
+.team p {
+  font-size: 1.2em;
+}
+
+.team .member .pic {
+  margin-bottom: 15px;
+  min-height: 250px;
+  min-width: 250px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.team .member .pic img {
+  border-radius: 5%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.team .member h4 {
+  font-weight: 700;
+  margin-bottom: 2px;
+  font-size: 1.2em;
+}
+
+.team .member .social {
+  margin-top: 15px;
+}
+
+.team .member .social a {
+  text-decoration: none;
+  color: #222A68;
+  transition: 0.3s;
+}
+
+.team .member .social a:hover {
+  color: #5289ba;
+}
+
+.team .member .social i {
+  font-size: 1.3em;
+  margin: 0 2px;
+}
