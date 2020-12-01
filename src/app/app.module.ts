@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClientModule } from '@modules/client/client.module';
+import { LandingModule } from './modules/landing/landing.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ClientModule } from '@modules/client/client.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     ClientModule,
+    LandingModule
   ],
   exports: [
   ],

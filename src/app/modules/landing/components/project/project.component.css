@@ -1,0 +1,66 @@
+.project {
+  margin: 3%;
+}
+
+.project .content {
+  padding: 30px 0;
+}
+
+.project .content h2 {
+  font-weight: 700;
+  font-size: 2.3em;
+  color: #222A68;
+}
+
+.project .content p {
+  margin-bottom: 0;
+  text-indent: 2em;
+  font-size: 1.2em;
+}
+
+.project .content .icon-box {
+  margin-top: 25px;
+}
+
+.project .content .icon-box h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 5px 0 10px 60px;
+  color: #222A68;
+}
+
+.project .content .icon-box h4 a {
+  color: #222A68;
+  transition: 0.3s;
+}
+
+.project .content .icon-box h4 a:hover {
+  color: #fdc134;
+}
+
+.project .content .icon-box i {
+  font-size: 48px;
+  float: left;
+  color: #fdc134;
+}
+
+.project .content .icon-box p {
+  font-size: 1.1em;
+  color: #848484;
+  margin-left: 60px;
+}
+
+.project .image {
+  border-radius: 10%;
+  max-height: 400px;
+}
+
+@media (max-width: 667px) {
+  .project .image img {
+    max-width: 50%;
+  }
+
+  .project {
+    margin: 5%;
+  }
+}

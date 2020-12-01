@@ -1,0 +1,46 @@
+.benefits {
+  margin: 3%;
+}
+
+.benefits p {
+  font-size: 1.2em;
+}
+
+.benefits .content p {
+  text-indent: 2em;
+}
+
+.benefits .content + .content {
+  margin-top: 100px;
+}
+
+.benefits h2 {
+  font-weight: 700;
+  font-size: 2.3em;
+  color: #222A68;
+}
+
+.benefits .content h3 {
+  font-weight: 700;
+  font-size: 1.7em;
+  color: #222A68;
+}
+
+.benefits .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.benefits .content ul li {
+  padding-bottom: 10px;
+}
+
+.benefits .content ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: #fdc134;
+}
+
+.benefits .content p:last-child {
+  margin-bottom: 0;
+}
