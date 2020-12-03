@@ -1,3 +1,6 @@
+import { CreatedToken } from './../model/created-token-model';
+import { Token } from './../model/token-model';
+import { AuthUtils } from './../utils/auth-utils';
 import { environment } from '@environments/environment';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -8,49 +11,49 @@ import { Observable } from 'rxjs';
 })
 export class AuthRepository {
 
-    constructor(private http: HttpClient) { }
+    constructor(
+      private http: HttpClient
+    ) { }
 
-    public postLogin(username: string, password: string): Observable<object> {
-        const body = `username=${username}&password=${password}&grant_type=password`;
+    public postLogin(
+      username: string,
+      password: string
+    ): Observable<CreatedToken> {
+        const body = AuthUtils.getFormLogin(username, password);
+        const headers = AuthUtils.getAuthHeaders();
 
-        const headers = new HttpHeaders({
-          'Content-Type': 'application/x-www-form-urlencoded',
-          Authorization: `Basic ${environment.authorization}`
-        });
-
-        return this.http
-          .post(`${environment.url_api}oauth/token`,
-            body, { headers, withCredentials: true });
+        return this.http.post(
+          `${environment.url_api}/oauth/token`,
+          body, { headers, withCredentials: true }
+        );
     }
 
-    public postRefreshToken(): Observable<object> {
-        const body = 'grant_type=refresh_token';
-
-        const headers = new HttpHeaders({
-          'Content-Type': 'application/x-www-form-urlencoded',
-          Authorization: `Basic ${environment.authorization}`
-        });
+    public postRefreshToken(): Observable<CreatedToken> {
+        const body = AuthUtils.grantTypeRefreshToken;
+        const headers = AuthUtils.getAuthHeaders();
 
         return this.http
-            .post(`${environment.url_api}oauth/token`,
+            .post(`${environment.url_api}/oauth/token`,
               body, { headers, withCredentials: true });
     }
 
-    public postCheckToken(): Observable<object> {
-        const body = `token=${localStorage.getItem('token')}`;
+    public postCheckToken(): Observable<Token> {
+        const body = AuthUtils.getBodyToken();
 
         const headers = new HttpHeaders({
-          'Content-Type': 'application/x-www-form-urlencoded'
+          'Content-Type': AuthUtils.formUrlEncoded
         });
 
-        return this.http
-            .post(`${environment.url_api}oauth/check_token`,
-              body, { headers });
+        return this.http.post(
+          `${environment.url_api}/oauth/check_token`,
+          body, { headers }
+        );
     }
 
-    public postLogout(): Observable<object> {
-        return this.http
-            .delete(`${environment.url_api}token/revoke`);
+    public deleteLogout(): Observable<object> {
+        return this.http.delete(
+          `${environment.url_api}/token/revoke`
+        );
     }
 
 }

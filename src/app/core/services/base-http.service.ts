@@ -24,30 +24,39 @@ export class BaseHttpService {
   put<T>(
     url: string,
     body: any,
+    id: number,
     useDefaultHeader: boolean = true,
     useFormData: boolean = false
   ): Observable<DefaultResponse<T>> {
-    return this.http.put<T>(url, body, useDefaultHeader, useFormData);
+    return this.http.put<T>(`${url}/${id}`, body, useDefaultHeader, useFormData);
   }
 
-  patch<T>(url: string, body: any): Observable<DefaultResponse<T>> {
-    return this.http.patch<T>(url, body);
+  patch<T>(
+    url: string,
+    id: number,
+    body: any
+  ): Observable<DefaultResponse<T>> {
+    return this.http.patch<T>(`${url}/${id}`, body);
   }
 
-  get<T>(url: string, id: number): Observable<DefaultResponse<T>> {
+  get<T>(
+    url: string,
+    id: number
+  ): Observable<DefaultResponse<T>> {
     return this.http.get<T>(`${url}/${id}`);
   }
 
-  getAll<T>(url: string): Observable<DefaultResponse<T>> {
+  getAll<T>(
+    url: string
+  ): Observable<DefaultResponse<T>> {
     return this.http.get<T>(`${url}`);
   }
 
-  delete<T>(url: string, id: number): Observable<DefaultResponse<T>> {
+  delete<T>(
+    url: string,
+    id: number
+  ): Observable<DefaultResponse<T>> {
     return this.http.delete<T>(url, id);
-  }
-
-  getData(url: string): Observable<any> {
-    return this.http.getData(url);
   }
 
 }

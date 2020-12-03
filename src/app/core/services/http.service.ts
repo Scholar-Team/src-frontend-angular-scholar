@@ -50,15 +50,23 @@ export class HttpService {
     );
   }
 
-  public patch<T>(url: string, body: any): Observable<DefaultResponse<T>> {
+  public patch<T>(
+    url: string,
+    body: any
+  ): Observable<DefaultResponse<T>> {
     return this.request<T>('PATCH', `${url}`, body);
   }
 
-  public get<T>(url: string): Observable<DefaultResponse<T>> {
+  public get<T>(
+    url: string
+  ): Observable<DefaultResponse<T>> {
     return this.request<T>('GET', `${url}`);
   }
 
-  public delete<T>(url: string, id: number): Observable<DefaultResponse<T>> {
+  public delete<T>(
+    url: string,
+    id: number
+  ): Observable<DefaultResponse<T>> {
     return this.request<T>('DELETE', `${url}`, { id });
   }
 
@@ -85,10 +93,7 @@ export class HttpService {
     }
 
     return this.http
-      .request<T>(type, url, {
-        body,
-        headers
-      })
+      .request<T>(type, url, { body, headers })
       .pipe(
         shareReplay(),
         retry(0),
@@ -97,7 +102,7 @@ export class HttpService {
       );
   }
 
-  private getDefaultHeader(useFormData: boolean = false): HttpHeaders{
+  private getDefaultHeader(useFormData: boolean = false): HttpHeaders {
     const token: string = localStorage.getItem('token');
 
     const headers = new HttpHeaders({
@@ -119,19 +124,6 @@ export class HttpService {
     result.success(type, e);
 
     return result;
-  }
-
-  getData(url: string): Observable<any> {
-    return this.http.get(url)
-      .pipe(map(
-        this.extractData
-      ));
-  }
-
-  private extractData(res: Response): any {
-    const body = res;
-
-    return body || {};
   }
 
 }

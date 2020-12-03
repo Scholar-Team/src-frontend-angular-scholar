@@ -16,9 +16,16 @@
         <li><a href="#benefits">Benefícios</a></li>
         <li><a href="#team">Time</a></li>
         <li><a href="#contact">Contato</a></li>
-        <li class="get-started"><a href="#about">Começar</a></li>
+        <li class="get-started">
+          <a
+            href="#about"
+            (click)="openModalLogin()">
+            Começar
+          </a>
+        </li>
       </ul>
     </nav>
 
   </div>
 </header>
+<app-login-modal #loginModal></app-login-modal>

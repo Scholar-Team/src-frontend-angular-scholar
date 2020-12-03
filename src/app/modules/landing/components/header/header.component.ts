@@ -1,15 +1,22 @@
-import { Component, HostListener } from '@angular/core';
+import { LandingComponent } from './../../pages/landing/landing.component';
+import { LoginModalComponent } from './../login-modal/login-modal.component';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
-  isSticky = false;
+export class HeaderComponent implements OnInit {
 
-  @HostListener('window:scroll', ['$event'])
-  checkScroll(): void {
-    this.isSticky = window.pageYOffset >= 5;
+  @ViewChild('loginModal')
+  private modalRef: LoginModalComponent;
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  public openModalLogin(): void {
+    this.modalRef.displayModal = true;
   }
 }

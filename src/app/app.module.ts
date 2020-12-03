@@ -5,8 +5,9 @@ import { CoreModule } from '@core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ClientModule } from '@modules/client/client.module';
 import { LandingModule } from './modules/landing/landing.module';
+import { SchoolModule } from './modules/school/school.module';
+import { PersonModule } from './modules/person/person.module';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,9 @@ import { LandingModule } from './modules/landing/landing.module';
     CoreModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ClientModule,
-    LandingModule
+    LandingModule,
+    SchoolModule,
+    PersonModule
   ],
   exports: [
   ],

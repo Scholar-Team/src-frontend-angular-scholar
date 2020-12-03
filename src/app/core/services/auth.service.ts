@@ -1,3 +1,6 @@
+import { Permission } from '@person/model/permission-model';
+import { Role } from '@person/model/role-model';
+import { TokenUtils } from './../utils/token-utils';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AuthRepository } from '../repository/auth-repository';
@@ -7,42 +10,39 @@ import { AuthRepository } from '../repository/auth-repository';
 })
 export class AuthService {
 
-  private jwtPayload: any;
-
-  constructor(public repository: AuthRepository, private router: Router) {
-    this.loadToken();
+  constructor(
+    public repository: AuthRepository,
+    private router: Router
+  ) {
+    TokenUtils.loadToken();
   }
 
-  public login(username: string, password: string): object {
-    return this.repository.postLogin(username, password).subscribe(resposta => {
-        const json: JSON = JSON.parse(JSON.stringify(resposta));
-        console.log(json);
-        this.saveToken(json['access_token']);
+  public postLogin(username: string, password: string): object {
+    return this.repository.postLogin(username, password).subscribe(response => {
+      TokenUtils.saveToken(response.access_token);
+      this.router.navigate(['/home']);
 
-        console.log('Novo access token criado!' + JSON.stringify(this.jwtPayload));
-
-        this.router.navigate(['/home']);
-      },
-      (error) => {
+      }, (error) => {
         console.log(error.error.error_description);
       });
   }
 
-  public logout(): object {
-    return this.repository.postLogout().subscribe(response => {
-        this.removeToken();
-        this.router.navigate(['/login']);
-      },
-      (e) => {
-        console.log(e.error.error_description);
+  public deleteLogout(): object {
+    return this.repository.deleteLogout().subscribe(() => {
+        TokenUtils.removeToken();
+        this.router.navigate(['']);
+
+      }, (error) => {
+        console.log(error.error.error_description);
       });
   }
 
   public hasPermission(permission: string): boolean {
-    return this.jwtPayload && this.jwtPayload.authorities.includes(permission);
+    return TokenUtils.jwtPayload &&
+      TokenUtils.jwtPayload.authorities.includes(permission);
   }
 
-  public hasAnyPermission(roles: any): boolean {
+  public hasAnyPermission(roles: string[]): boolean {
     for (const role of roles) {
       if (this.hasPermission(role)) {
         return true;
@@ -52,57 +52,31 @@ export class AuthService {
     return false;
   }
 
-  public isTokenValid(): boolean {
-    const token = localStorage.getItem('token');
-
-    return !token || this.isTokenExpired();
-  }
-
-  public getNewToken(): object {
+  public generateNewToken(): object {
     return this.repository.postRefreshToken().subscribe(response => {
-      const json: JSON = JSON.parse(JSON.stringify(response));
-      this.saveToken(json['access_token']);
+      TokenUtils.saveToken(response.access_token);
 
-      console.log('Novo access token criado pelo refresh token! ' + JSON.stringify(this.jwtPayload));
-      },
-      (error) => {
+      }, (error) => {
         console.log(error.error.error_description);
-        this.router.navigate(['/login']);
+        this.router.navigate(['']);
       });
   }
 
-  private isTokenExpired(): boolean {
-    this.repository.postCheckToken().subscribe(response => {
-      const json: JSON = JSON.parse(JSON.stringify(response));
+  public isTokenValid(): boolean {
+    return TokenUtils.getToken() && this.isTokenActive();
+  }
 
-      if (json['active']){
-        return false;
-      }
-    },
-    (e) => {
-        this.getNewToken();
+  private isTokenActive(): boolean {
+    let active: boolean;
+
+    this.repository.postCheckToken().subscribe(response => {
+      active = response.active;
+
+    }, () => {
+        this.generateNewToken();
     });
 
-    return true;
-  }
-
-  private saveToken(token: string): void {
-    this.jwtPayload = JSON.parse(atob(token.split('.')[1]));
-
-    localStorage.setItem('token', token);
-  }
-
-  private removeToken(): void {
-    localStorage.removeItem('token');
-    this.jwtPayload = null;
-  }
-
-  private loadToken(): void {
-    const token = localStorage.getItem('token');
-
-    if (token) {
-      this.saveToken(token);
-    }
+    return active;
   }
 
 }
