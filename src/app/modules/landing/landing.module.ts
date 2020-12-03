@@ -6,6 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { AngularTiltModule } from 'angular-tilt';
+import { FileUploadModule } from 'primeng/fileupload';
 
 import { TeamComponent } from './components/team/team.component';
 import { SliderComponent } from './components/slider/slider.component';
@@ -16,9 +17,11 @@ import { BenefitsComponent } from './components/benefits/benefits.component';
 import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from './pages/landing/landing.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { LoginModalComponent } from './components/login-modal/login-modal.component';
+import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterSchoolComponent } from './components/register-school/register-school.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SliderComponent,
     TeamComponent,
     ContactComponent,
-    LoginModalComponent
+    LoginComponent,
+    RegisterSchoolComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +47,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularTiltModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FileUploadModule
   ]
 })
 export class LandingModule { }

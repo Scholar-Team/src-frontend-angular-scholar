@@ -20,6 +20,11 @@
   src: url('assets/fonts/montserrat/Montserrat-Bold.ttf');
 }
 
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url('assets/fonts/montserrat/Montserrat-Regular.ttf');
+}
+
 /* [End Fonts] */
 
 /* [Inicio do Default] */

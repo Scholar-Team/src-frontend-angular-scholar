@@ -1,6 +1,5 @@
-import { LandingComponent } from './../../pages/landing/landing.component';
-import { LoginModalComponent } from './../login-modal/login-modal.component';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ModalComponent } from './../modal/modal.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,14 +8,14 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @ViewChild('loginModal')
-  private modalRef: LoginModalComponent;
+  @ViewChild('modalComponent')
+  private modalRef: ModalComponent;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  public openModalLogin(): void {
-    this.modalRef.displayModal = true;
+  public openModal(): void {
+    this.modalRef.showModalDialog();
   }
 }

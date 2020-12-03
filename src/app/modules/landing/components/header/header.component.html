@@ -18,8 +18,8 @@
         <li><a href="#contact">Contato</a></li>
         <li class="get-started">
           <a
-            href="#about"
-            (click)="openModalLogin()">
+            routerLink="login"
+            (click)="openModal()">
             Começar
           </a>
         </li>
@@ -28,4 +28,4 @@
 
   </div>
 </header>
-<app-login-modal #loginModal></app-login-modal>
+<app-modal #modalComponent></app-modal>

@@ -1,13 +1,25 @@
-import { NotAuthorizedComponent } from './../../shared/pages/not-authorized/not-authorized.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LandingComponent } from './pages/landing/landing.component';
+import { RegisterSchoolComponent } from './components/register-school/register-school.component';
+import { LoginComponent } from './components/login/login.component';
+import { NotAuthorizedComponent } from '@shared/pages/not-authorized/not-authorized.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LandingComponent
+    component: LandingComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'register-school',
+        component: RegisterSchoolComponent
+      }
+    ]
   },
   {
     path: 'not-authorized',

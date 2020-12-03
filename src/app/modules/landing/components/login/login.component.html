@@ -1,0 +1,62 @@
+<div class="limiter">
+<div class="container-login">
+  <div class="row wrap-login
+          d-flex align-items-center
+          justify-content-center">
+    <div class="col-md-7 col-sm-0 login-pic" aTilt>
+      <img
+        class="img-fluid align-self-center"
+        src="assets/images/login-modal-img.png">
+    </div>
+
+    <form
+      [formGroup]="formGroup"
+      (ngSubmit)="login()"
+      class="col-md-5 col-sm-12 login-form validate-form">
+      <span class="login-form-title">
+        Vamos estudar!
+      </span>
+
+      <div class="wrap-input validate-input">
+        <input
+          class="input"
+          type="text"
+          name="email"
+          formControlName="username"
+          placeholder="Email">
+        <span class="focus-input"></span>
+        <span class="symbol-input">
+          <fa-icon [icon]="faEnvelope"></fa-icon>
+        </span>
+      </div>
+
+      <div class="wrap-input validate-input">
+        <input
+          class="input"
+          type="password"
+          name="password"
+          formControlName="password"
+          placeholder="Senha">
+        <span class="focus-input"></span>
+        <span class="symbol-input">
+          <fa-icon [icon]="faLock"></fa-icon>
+        </span>
+      </div>
+
+      <div class="container-login-form-btn">
+        <button type="submit" class="login-form-btn">
+          Logar-se
+        </button>
+      </div>
+
+      <div class="text-center mt-5 mb-3">
+        <a
+          routerLink="../register-school"
+          class="register-school">
+          Deseja cadastrar sua escola?
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

@@ -1,19 +1,18 @@
 import { AuthService } from '@core/services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login-modal',
-  templateUrl: './login-modal.component.html',
-  styleUrls: ['./login-modal.component.css']
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class LoginModalComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   faEnvelope = faEnvelope;
   faLock = faLock;
 
-  displayModal: boolean;
   public formGroup: FormGroup;
 
   constructor(
@@ -25,14 +24,10 @@ export class LoginModalComponent implements OnInit {
     this.initForm();
   }
 
-  public showModalDialog(): void {
-    this.displayModal = true;
-  }
-
   private initForm(): void {
     this.formGroup = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
     });
   }
 
