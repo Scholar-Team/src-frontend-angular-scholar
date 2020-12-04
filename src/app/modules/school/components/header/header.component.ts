@@ -20,10 +20,10 @@ export class HeaderComponent implements OnInit {
   constructor(
     private personService: PersonService
   ) {
-    this.personService.findById(Number(localStorage.getItem('person_id'))).subscribe(r => {
+    /*this.personService.findById(Number(localStorage.getItem('person_id'))).subscribe(r => {
       this.imgUser.nativeElement.src = r.file.url;
       this.name.nativeElement.innerHTML = r.name;
-    });
+    });*/
   }
 
   ngOnInit(): void { }

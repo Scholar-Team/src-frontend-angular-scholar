@@ -7,7 +7,7 @@ export class TokenUtils {
   }
 
   public static saveToken(createdToken: string): void {
-    this.jwtPayload = JSON.parse(atob(createdToken.split('.')[1]));
+    //this.jwtPayload = JSON.parse(atob(createdToken.split('.')[1]));
 
     localStorage.setItem('token', createdToken);
     localStorage.setItem('person_id', this.jwtPayload.person_id.toString());
