@@ -9,6 +9,7 @@ import { DialogModule } from 'primeng/dialog';
 import { FileUploadModule } from 'primeng/fileupload';
 import { AngularTiltModule } from 'angular-tilt';
 import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
 
 import { TeacherService } from './services/teacher.service';
 import { StudentService } from './services/student.service';
@@ -34,6 +35,13 @@ import { RegisterActivityComponent } from './components/register-activity/regist
 import { RegisterClassComponent } from './components/register-class/register-class.component';
 import { RegisterClassroomComponent } from './components/register-classroom/register-classroom.component';
 import { HeaderComponent } from './components/header/header.component';
+import { PeriodsComponent } from './components/periods/periods.component';
+import { ClassroomsComponent } from './components/classrooms/classrooms.component';
+import { ActivitiesComponent } from './components/activities/activities.component';
+import { ClassesComponent } from './components/classes/classes.component';
+import { DisciplinesComponent } from './components/disciplines/disciplines.component';
+import { StudentsComponent } from './components/students/students.component';
+import { TeachersComponent } from './components/teachers/teachers.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +57,13 @@ import { HeaderComponent } from './components/header/header.component';
     RegisterClassComponent,
     RegisterClassroomComponent,
     HeaderComponent,
+    PeriodsComponent,
+    ClassroomsComponent,
+    ActivitiesComponent,
+    ClassesComponent,
+    DisciplinesComponent,
+    StudentsComponent,
+    TeachersComponent
   ],
   imports: [
     CommonModule,
@@ -59,7 +74,8 @@ import { HeaderComponent } from './components/header/header.component';
     FileUploadModule,
     DialogModule,
     PersonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TableModule
   ],
   providers: [
     ActivityService,

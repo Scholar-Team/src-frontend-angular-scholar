@@ -31,7 +31,7 @@ export class AuthService {
         }
 
         if (role === 'ROLE_DI') {
-          this.router.navigate(['/director']);
+          this.router.navigate(['/director/periods']);
         }
       }
 

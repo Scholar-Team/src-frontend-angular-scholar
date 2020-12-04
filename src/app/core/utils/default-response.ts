@@ -5,7 +5,9 @@ export class DefaultResponse<T> {
     data: T;
     payload: any;
 
-    constructor() { }
+    constructor() {
+      this.title = '';
+    }
 
     /**
      * Método que lança erro no objeto
