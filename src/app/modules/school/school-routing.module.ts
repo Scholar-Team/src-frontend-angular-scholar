@@ -1,3 +1,5 @@
+import { DisciplinesTeacherComponent } from './components/disciplines-teacher/disciplines-teacher.component';
+import { ClassesTeacherComponent } from './components/classes-teacher/classes-teacher.component';
 import { ViewClassComponent } from './components/view-class/view-class.component';
 import { DisciplinesStudentComponent } from './components/disciplines-student/disciplines-student.component';
 import { ClassesComponent } from './components/classes/classes.component';
@@ -56,12 +58,18 @@ const routes: Routes = [
     },
     children: [
       {
-        path: 'register-class',
-        component: RegisterClassComponent
+        path: 'classes',
+        component: ClassesTeacherComponent,
+        children: [
+          {
+            path: 'register-class',
+            component: RegisterClassComponent
+          }
+        ]
       },
       {
-        path: 'register-activity',
-        component: RegisterActivityComponent
+        path: 'disciplines',
+        component: DisciplinesTeacherComponent
       }
     ]
   },

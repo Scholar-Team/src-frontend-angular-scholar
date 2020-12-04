@@ -1,3 +1,4 @@
+import { ClassEntity } from './../entity/class-entity';
 import { map } from 'rxjs/operators';
 import { Teacher } from './../model/teacher-model';
 import { TeacherEntity } from './../entity/teacher-entity';
@@ -47,5 +48,9 @@ export class TeacherService {
   public deleteById(id: number): Observable<Teacher> {
     return this.baseService.deleteById(id)
       .pipe(map(x => this.mapper.entityToModel(x.data)));
+  }
+
+  public findClassesById(id: number): Observable<DefaultResponse<ClassEntity>> {
+    return this.baseService.findClassesById(id);
   }
 }

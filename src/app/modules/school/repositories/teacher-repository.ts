@@ -1,3 +1,4 @@
+import { ClassEntity } from './../entity/class-entity';
 import { TeacherEntity } from './../entity/Teacher-entity';
 import { Injectable } from '@angular/core';
 import { DefaultResponse } from '@core/utils/default-response';
@@ -50,6 +51,12 @@ export class TeacherRepository {
   public deleteById(id: number): Observable<DefaultResponse<TeacherEntity>> {
     return this.baseService.deleteById<TeacherEntity>(
       this.baseUrl, id
+    );
+  }
+
+  public findClassesById(id: number): Observable<DefaultResponse<ClassEntity>> {
+    return this.baseService.findSomethingById<ClassEntity>(
+      this.baseUrl, 'classes', id
     );
   }
 }

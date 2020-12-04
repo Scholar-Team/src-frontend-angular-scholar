@@ -1,1 +1,28 @@
-<p>teacher-page works!</p>
+<section>
+  <div class="sidebar-menu sticky-sidebar-menu" style="background-color: #222b68;">
+    <div class="logo" style="background-color: #222b68;">
+      <a href="index.html">
+        <img src="assets/images/logo-projeto.png" alt="Your logo" title="Your logo" class="img-fluid" style="height:50px;" />
+      </a>
+    </div>
+
+    <div class="logo-icon text-center">
+      <a href="index.html" title="logo"><img src="assets/images/logo.png" alt="logo-icon"> </a>
+    </div>
+
+    <div class="sidebar-menu-inner">
+      <ul class="nav nav-pills nav-stacked custom-nav">
+        <li><a routerLink="classes">Aulas</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <app-header></app-header>
+
+  <div class="main-content">
+    <div class="container-fluid content-top-gap">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>
+

@@ -1,1 +1,55 @@
-<p>{{  class.name }}</p>
+<div class="limiter">
+  <div class="container-login">
+    <div class="row wrap-login
+            d-flex align-items-center
+            justify-content-center">
+      <div
+        class="col-md-5 col-sm-12 login-form validate-form">
+        <span class="login-form-title">
+          Acompanhe a aula!
+        </span>
+
+        <div class="wrap-input validate-input">
+          <div
+            class="input d-flex align-content-center align-items-center">
+            <p>{{ class.name }}</p>
+          </div>
+          <span class="focus-input"></span>
+          <span class="symbol-input">
+            <fa-icon [icon]="faSignature"></fa-icon>
+          </span>
+        </div>
+
+        <div class="wrap-input validate-input">
+          <div
+            class="input d-flex align-content-center align-items-center">
+            <p>{{ class.description }}</p>
+          </div>
+          <span class="focus-input"></span>
+          <span class="symbol-input">
+            <fa-icon [icon]="faKeyboard"></fa-icon>
+          </span>
+        </div>
+
+        <div class="wrap-input validate-input">
+          <div
+            class="input d-flex align-content-center align-items-center">
+            <p>{{ class.link }}</p>
+          </div>
+          <span class="focus-input"></span>
+          <span class="symbol-input">
+            <fa-icon [icon]="faGlobe"></fa-icon>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-7 col-sm-0 login-pic" aTilt>
+        <img
+          #directorPicture
+          class="img-fluid align-self-center p-5"
+          id="picture"
+          src="assets/images/teaching.png">
+      </div>
+    </div>
+  </div>
+  </div>
