@@ -1,3 +1,6 @@
+import { ViewClassComponent } from './components/view-class/view-class.component';
+import { DisciplinesStudentComponent } from './components/disciplines-student/disciplines-student.component';
+import { ClassesComponent } from './components/classes/classes.component';
 import { TeachersComponent } from './components/teachers/teachers.component';
 import { StudentsComponent } from './components/students/students.component';
 import { DisciplinesComponent } from './components/disciplines/disciplines.component';
@@ -26,7 +29,23 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       roles: ['ROLE_AL']
-    }
+    },
+    children: [
+      {
+        path: 'classes',
+        component: ClassesComponent,
+        children: [
+          {
+            path: 'class',
+            component: ViewClassComponent
+          }
+        ]
+      },
+      {
+        path: 'disciplines',
+        component: DisciplinesStudentComponent
+      }
+    ]
   },
   {
     path: 'teacher',
@@ -55,44 +74,54 @@ const routes: Routes = [
     },
     children: [
       {
-        path: 'register-period',
-        component: RegisterPeriodComponent
-      },
-      {
         path: 'periods',
-        component: PeriodsComponent
-      },
-      {
-        path: 'register-classroom',
-        component: RegisterClassroomComponent
+        component: PeriodsComponent,
+        children: [
+          {
+            path: 'register-period',
+            component: RegisterPeriodComponent
+          }
+        ]
       },
       {
         path: 'classrooms',
-        component: ClassroomsComponent
-      },
-      {
-        path: 'register-discipline',
-        component: RegisterDisciplineComponent
+        component: ClassroomsComponent,
+        children: [
+          {
+            path: 'register-classroom',
+            component: RegisterClassroomComponent
+          }
+        ]
       },
       {
         path: 'disciplines',
-        component: DisciplinesComponent
-      },
-      {
-        path: 'register-student',
-        component: RegisterStudentComponent
+        component: DisciplinesComponent,
+        children: [
+          {
+            path: 'register-discipline',
+            component: RegisterDisciplineComponent
+          }
+        ]
       },
       {
         path: 'students',
-        component: StudentsComponent
-      },
-      {
-        path: 'register-teacher',
-        component: RegisterTeacherComponent
+        component: StudentsComponent,
+        children: [
+          {
+            path: 'register-student',
+            component: RegisterStudentComponent
+          }
+        ]
       },
       {
         path: 'teachers',
-        component: TeachersComponent
+        component: TeachersComponent,
+        children: [
+          {
+            path: 'register-teacher',
+            component: RegisterTeacherComponent
+          }
+        ]
       }
     ]
   },

@@ -70,8 +70,6 @@ export class RegisterDirectorComponent implements OnInit {
     this.directorService.post(formData).subscribe(r => {
       this.router.navigate(['../login']);
     });
-
-    this.router.navigate(['../login']);
   }
 
   public onFileChange(event: any): void {

@@ -1,1 +1,27 @@
-<p>classrooms works!</p>
+<p-table [value]="classrooms">
+  <ng-template pTemplate="caption">
+      <div class="p-d-flex p-ai-center p-jc-between">
+          Turmas
+      </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Nome</th>
+          <th>Imagem</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-classroom>
+      <tr>
+          <td>{{ classroom.name }}</td>
+          <td><img src="{{ classroom.file.url }}"width="100" class="p-shadow-4"/></td>
+      </tr>
+  </ng-template>
+</p-table>
+
+<div class="text-center m-3">
+  <a class="btn-get-started" (click)="openModal()" routerLink="register-classroom" >
+    Criar nova turma
+  </a>
+</div>
+
+<app-modal #modalComponent></app-modal>

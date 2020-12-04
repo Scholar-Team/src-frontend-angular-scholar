@@ -42,6 +42,8 @@ import { ClassesComponent } from './components/classes/classes.component';
 import { DisciplinesComponent } from './components/disciplines/disciplines.component';
 import { StudentsComponent } from './components/students/students.component';
 import { TeachersComponent } from './components/teachers/teachers.component';
+import { DisciplinesStudentComponent } from './components/disciplines-student/disciplines-student.component';
+import { ViewClassComponent } from './components/view-class/view-class.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import { TeachersComponent } from './components/teachers/teachers.component';
     ClassesComponent,
     DisciplinesComponent,
     StudentsComponent,
-    TeachersComponent
+    TeachersComponent,
+    DisciplinesStudentComponent,
+    ViewClassComponent
   ],
   imports: [
     CommonModule,

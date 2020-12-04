@@ -1,1 +1,21 @@
-<p>classes works!</p>
+<p-table [value]="classes">
+  <ng-template pTemplate="caption">
+      <div class="p-d-flex p-ai-center p-jc-between">
+          Aulas
+      </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Nome</th>
+          <th>Disciplina</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-class>
+      <tr>
+          <td routerLink="class" (click)="openModal(class.id)">{{ class.name }}</td>
+          <td>{{ class.discipline.name }}</td>
+      </tr>
+  </ng-template>
+</p-table>
+
+<app-modal #modalComponent></app-modal>

@@ -1,7 +1,8 @@
+import { ModalComponent } from '@modules/landing/components/modal/modal.component';
 import { DirectorService } from './../../services/director.service';
 import { Period } from './../../model/period-model';
 import { SchoolService } from '@school/services/school.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-periods',
@@ -11,6 +12,9 @@ import { Component, OnInit } from '@angular/core';
 export class PeriodsComponent implements OnInit {
 
   public periods: any;
+
+  @ViewChild('modalComponent')
+  private modalComponent: ModalComponent;
 
   constructor(
     private schoolService: SchoolService,
@@ -24,5 +28,9 @@ export class PeriodsComponent implements OnInit {
   }
 
   ngOnInit(): void { }
+
+  public openModal(): void {
+    this.modalComponent.showModalDialog();
+  }
 
 }

@@ -1,1 +1,29 @@
-<p>teachers works!</p>
+<p-table [value]="teachers">
+  <ng-template pTemplate="caption">
+      <div class="p-d-flex p-ai-center p-jc-between">
+          Professores
+      </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Nome</th>
+          <th>Imagem</th>
+          <th>Email</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-teacher>
+      <tr>
+          <td>{{ teacher.name }}</td>
+          <td><img src="{{ teacher.file.url }}"width="100" class="p-shadow-4"/></td>
+          <td>{{ teacher.email }}</td>
+      </tr>
+  </ng-template>
+</p-table>
+
+<div class="text-center m-3">
+  <a class="btn-get-started" (click)="openModal()" routerLink="register-teacher" >
+    Criar novo professor
+  </a>
+</div>
+
+<app-modal #modalComponent></app-modal>

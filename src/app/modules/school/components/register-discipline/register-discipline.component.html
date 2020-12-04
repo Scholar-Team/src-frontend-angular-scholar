@@ -1,1 +1,91 @@
-<p>register-discipline works!</p>
+<div class="limiter">
+  <div class="container-login">
+    <div class="row wrap-login
+            d-flex align-items-center
+            justify-content-center">
+
+      <div class="col-md-7 col-sm-0 login-pic" aTilt>
+        <img
+          #directorPicture
+          class="img-fluid align-self-center p-5"
+          id="picture"
+          src="assets/images/male-picture.png">
+
+        <div class="wrap-input validate-input d-flex justify-content-center">
+
+        <p-fileUpload
+          mode="basic"
+          name="file[]"
+          [multiple]="true"
+          accept="image/*"
+          styleClass="uploadButton"
+          maxFileSize="10000000"
+          [showCancelButton]="true"
+          [showUploadButton]="false"
+          [chooseLabel]="'Escolha uma foto'"
+          (onSelect)="onFileChange($event)">>
+        </p-fileUpload>
+        </div>
+      </div>
+
+      <form
+        [formGroup]="formGroup"
+        (ngSubmit)="registerDirector()"
+        class="col-md-5 col-sm-12 login-form validate-form">
+        <span class="login-form-title">
+          Cadastre a disciplina
+        </span>
+
+        <div class="wrap-input validate-input">
+          <input
+            class="input"
+            type="text"
+            formControlName="name"
+            placeholder="Nome">
+          <span class="focus-input"></span>
+          <span class="symbol-input">
+            <fa-icon [icon]="faSignature"></fa-icon>
+          </span>
+        </div>
+
+        <div class="wrap-input validate-input">
+          <select
+            formControlName="classroom"
+            class="input">
+
+            <option *ngFor="let classroom of classrooms" value="{{classroom.id}}">
+              {{classroom.name}}
+            </option>
+          </select>
+
+          <span class="focus-input"></span>
+          <span class="symbol-input">
+            <fa-icon [icon]="faAddressCard"></fa-icon>
+          </span>
+        </div>
+
+        <div class="wrap-input validate-input">
+          <select
+            formControlName="teacher"
+            class="input">
+
+            <option *ngFor="let teacher of teachers" value="{{teacher.id}}">
+              {{teacher.name}}
+            </option>
+          </select>
+
+          <span class="focus-input"></span>
+          <span class="symbol-input">
+            <fa-icon [icon]="faTeacher"></fa-icon>
+          </span>
+        </div>
+
+        <div class="container-login-form-btn">
+          <button type="submit" class="login-form-btn">
+            Registrar disciplina
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>

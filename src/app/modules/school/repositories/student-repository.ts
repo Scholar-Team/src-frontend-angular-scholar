@@ -1,3 +1,5 @@
+import { ClassEntity } from './../entity/class-entity';
+import { DisciplineEntity } from './../entity/discipline-entity';
 import { StudentEntity } from './../entity/Student-entity';
 import { Injectable } from '@angular/core';
 import { DefaultResponse } from '@core/utils/default-response';
@@ -50,6 +52,18 @@ export class StudentRepository {
   public deleteById(id: number): Observable<DefaultResponse<StudentEntity>> {
     return this.baseService.deleteById<StudentEntity>(
       this.baseUrl, id
+    );
+  }
+
+  public findDisciplinesById(id: number): Observable<DefaultResponse<DisciplineEntity>> {
+    return this.baseService.findSomethingById<DisciplineEntity>(
+      this.baseUrl, 'disciplines', id
+    );
+  }
+
+  public findClassesById(id: number): Observable<DefaultResponse<ClassEntity>> {
+    return this.baseService.findSomethingById<ClassEntity>(
+      this.baseUrl, 'classes', id
     );
   }
 }

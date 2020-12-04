@@ -1,3 +1,5 @@
+import { ClassEntity } from './../entity/class-entity';
+import { DisciplineEntity } from './../entity/discipline-entity';
 import { map } from 'rxjs/operators';
 import { Student } from './../model/student-model';
 import { StudentEntity } from './../entity/student-entity';
@@ -47,5 +49,13 @@ export class StudentService {
   public deleteById(id: number): Observable<Student> {
     return this.baseService.deleteById(id)
       .pipe(map(x => this.mapper.entityToModel(x.data)));
+  }
+
+  public findDisciplinesById(id: number): Observable<DefaultResponse<DisciplineEntity>> {
+    return this.baseService.findDisciplinesById(id);
+  }
+
+  public findClassesById(id: number): Observable<DefaultResponse<ClassEntity>> {
+    return this.baseService.findClassesById(id);
   }
 }
