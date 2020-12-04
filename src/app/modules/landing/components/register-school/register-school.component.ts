@@ -57,7 +57,6 @@ export class RegisterSchoolComponent implements OnInit {
     formData.append('file', this.uploadedFile);
 
     this.schoolService.post(formData).subscribe(r => {
-      console.log(r);
       localStorage.setItem('school_id', `${r.id}`);
       this.router.navigate(['../register-director']);
 
@@ -67,7 +66,7 @@ export class RegisterSchoolComponent implements OnInit {
   }
 
   public onFileChange(event: any): void {
-    /*if (event.files && event.files[0]) {
+    if (event.files && event.files[0]) {
       this.uploadedFile = event.files[0];
 
       const reader = new FileReader();
@@ -76,7 +75,7 @@ export class RegisterSchoolComponent implements OnInit {
       reader.onload = () => {
         this.schoolPicture.nativeElement.src = reader.result;
       };
-    }*/
+    }
   }
 
 }

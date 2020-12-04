@@ -75,7 +75,7 @@ export class RegisterDirectorComponent implements OnInit {
   }
 
   public onFileChange(event: any): void {
-    /*if (event.files && event.files[0]) {
+    if (event.files && event.files[0]) {
       this.uploadedFile = event.files[0];
 
       const reader = new FileReader();
@@ -84,7 +84,7 @@ export class RegisterDirectorComponent implements OnInit {
       reader.onload = () => {
         this.directorPicture.nativeElement.src = reader.result;
       };
-    }*/
+    }
   }
 
 }
