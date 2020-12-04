@@ -1,5 +1,5 @@
-<app-header></app-header>
-<app-slider></app-slider>
+<app-header [modalComponent]="modalComponent"></app-header>
+<app-slider [modalComponent]="modalComponent"></app-slider>
 
 <main id="main">
   <app-project></app-project>
@@ -8,4 +8,5 @@
   <app-contact></app-contact>
 </main>
 
-<app-footer></app-footer>
+<app-modal #modalComponent></app-modal>
+<app-footer [modalComponent]="modalComponent"></app-footer>

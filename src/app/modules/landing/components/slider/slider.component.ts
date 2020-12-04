@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ModalComponent } from '@modules/landing/components/modal/modal.component';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SliderComponent implements OnInit {
 
+  @Input() modalComponent: ModalComponent;
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  public openModal(): void {
+    this.modalComponent.showModalDialog();
   }
 
 }

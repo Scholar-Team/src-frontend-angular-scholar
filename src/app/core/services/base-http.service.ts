@@ -9,54 +9,57 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class BaseHttpService {
 
-  constructor(public http: HttpService) {}
+  constructor(
+    public http: HttpService
+  ) { }
 
-  post<T>(
+  public post<T>(
     url: string,
     body: any,
-    useDefaultHeader: boolean = true,
-    useFormData: boolean = false,
-    newHeaders: HttpHeaders = null
+    headers: HttpHeaders = null
   ): Observable<DefaultResponse<T>> {
-    return this.http.post<T>(url, body, useDefaultHeader, useFormData, newHeaders);
+    return this.http.post<T>(url, body, headers);
   }
 
-  put<T>(
+  public putById<T>(
     url: string,
     body: any,
     id: number,
-    useDefaultHeader: boolean = true,
-    useFormData: boolean = false
+    headers: HttpHeaders = null
   ): Observable<DefaultResponse<T>> {
-    return this.http.put<T>(`${url}/${id}`, body, useDefaultHeader, useFormData);
+    return this.http.put<T>(`${url}/${id}`, body, headers);
   }
 
-  patch<T>(
+  public patchById<T>(
     url: string,
     id: number,
-    body: any
+    body: any,
+    headers: HttpHeaders = null
   ): Observable<DefaultResponse<T>> {
-    return this.http.patch<T>(`${url}/${id}`, body);
+    return this.http.patch<T>(`${url}/${id}`, body, headers);
   }
 
-  get<T>(
+  public findById<T>(
     url: string,
-    id: number
+    id: number,
+    headers: HttpHeaders = null
   ): Observable<DefaultResponse<T>> {
-    return this.http.get<T>(`${url}/${id}`);
+    return this.http.get<T>(`${url}/${id}`, headers);
   }
 
-  getAll<T>(
-    url: string
-  ): Observable<DefaultResponse<T>> {
-    return this.http.get<T>(`${url}`);
-  }
-
-  delete<T>(
+  public findAll<T>(
     url: string,
-    id: number
+    headers: HttpHeaders = null
   ): Observable<DefaultResponse<T>> {
-    return this.http.delete<T>(url, id);
+    return this.http.get<T>(`${url}`, headers);
+  }
+
+  public deleteById<T>(
+    url: string,
+    id: number,
+    headers: HttpHeaders = null
+  ): Observable<DefaultResponse<T>> {
+    return this.http.delete<T>(`${url}/${id}`, headers);
   }
 
 }

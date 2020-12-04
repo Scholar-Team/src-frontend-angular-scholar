@@ -11,6 +11,7 @@ export class PersonMapper extends Mapper<Person, PersonEntity> {
       email: param.email,
       birthDate: param.birthDate,
       cpf: param.cpf,
+      file: param.file,
       telephones: param.telephones,
       address: param.address,
       roles: param.roles
@@ -24,6 +25,7 @@ export class PersonMapper extends Mapper<Person, PersonEntity> {
       email: param.email,
       birthDate: param.birthDate,
       cpf: param.cpf,
+      file: param.file,
       telephones: param.telephones,
       address: param.address,
       roles: param.roles

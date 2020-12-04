@@ -1,3 +1,4 @@
+import { BaseHttpService } from '@core/services/base-http.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -13,6 +14,7 @@ import { AuthService } from './services/auth.service';
   providers: [
     AuthService,
     AuthGuard,
+    BaseHttpService
   ]
 })
 

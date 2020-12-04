@@ -5,6 +5,7 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { RegisterSchoolComponent } from './components/register-school/register-school.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotAuthorizedComponent } from '@shared/pages/not-authorized/not-authorized.component';
+import { RegisterDirectorComponent } from './components/register-director/register-director.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path: 'register-school',
         component: RegisterSchoolComponent
+      },
+      {
+        path: 'register-director',
+        component: RegisterDirectorComponent
       }
     ]
   },

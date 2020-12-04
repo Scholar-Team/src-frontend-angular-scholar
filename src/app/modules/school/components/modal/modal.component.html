@@ -1,0 +1,17 @@
+<p-dialog
+  [(visible)]="displayModal"
+  [modal]="true"
+  styleClass="modal"
+  [maximizable]="true"
+  [style]="{
+    width: '70vw'
+  }"
+  class="d-flex justify-content-center align-items-center"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [resizable]="false">
+
+  <p-header class="modalHeader"></p-header>
+
+  <router-outlet></router-outlet>
+</p-dialog>

@@ -1,3 +1,4 @@
+import { AuthUtils } from './../utils/auth-utils';
 import { AuthService } from './auth.service';
 import { environment } from '@environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -21,95 +22,80 @@ export class HttpService {
   public post<T>(
     url: string,
     body: any,
-    useDefaultHeader: boolean = true,
-    useFormData: boolean = false,
-    newHeaders: HttpHeaders = null
+    headers: HttpHeaders = null
   ): Observable<DefaultResponse<T>> {
-    return this.request<T>(
+    return this.requestRepository<T>(
       'POST',
       `${url}`,
       body,
-      useDefaultHeader,
-      useFormData,
-      newHeaders
+      headers
     );
   }
 
   public put<T>(
     url: string,
     body: any,
-    useDefaultHeader: boolean = true,
-    useFormData: boolean = false
+    headers: HttpHeaders = null
   ): Observable<DefaultResponse<T>> {
-    return this.request<T>(
+    return this.requestRepository<T>(
       'PUT',
       `${url}`,
       body,
-      useDefaultHeader,
-      useFormData
+      headers
     );
   }
 
   public patch<T>(
     url: string,
-    body: any
+    body: any,
+    headers: HttpHeaders = null
   ): Observable<DefaultResponse<T>> {
-    return this.request<T>('PATCH', `${url}`, body);
+    return this.requestRepository<T>(
+      'PATCH',
+      `${url}`,
+      body,
+      headers
+    );
   }
 
   public get<T>(
-    url: string
+    url: string,
+    headers: HttpHeaders = null
   ): Observable<DefaultResponse<T>> {
-    return this.request<T>('GET', `${url}`);
+    return this.requestRepository<T>(
+      'GET',
+      `${url}`,
+      headers
+    );
   }
 
   public delete<T>(
     url: string,
-    id: number
+    headers: HttpHeaders = null
   ): Observable<DefaultResponse<T>> {
-    return this.request<T>('DELETE', `${url}`, { id });
+    return this.requestRepository<T>(
+      'DELETE',
+      `${url}`,
+      headers
+    );
   }
 
-  private request<T>(
+  public requestRepository<T>(
     type: string,
     url: string,
     body: any = null,
-    useDefaultHeader: boolean = true,
-    useFormData: boolean = false,
-    newHeaders: HttpHeaders = null
+    headers: HttpHeaders = null
   ): Observable<DefaultResponse<T>> {
-    this.service.isTokenValid();
-
-    let headers: HttpHeaders;
-    headers = newHeaders || this.getDefaultHeader(useFormData);
-
-    if (environment.logRequest) {
-      console.dir({ type, url, headers, body });
-    }
-
-    if (environment.traceRequest) {
-      // tslint:disable-next-line: no-console
-      console.trace('trace');
-    }
-
     return this.http
-      .request<T>(type, url, { body, headers })
+      .request<T>(type, url, { body })
       .pipe(
         shareReplay(),
         retry(0),
         delay(500),
-        map((x) => this.onSuccess<T>(type, x))
+        map((x) => {
+          return this.onSuccess<T>(type, x);
+        })
       );
-  }
-
-  private getDefaultHeader(useFormData: boolean = false): HttpHeaders {
-    const token: string = localStorage.getItem('token');
-
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + token
-    });
-
-    return headers;
   }
 
   private onCatch<T>(e: T): DefaultResponse<T> {
@@ -125,5 +111,4 @@ export class HttpService {
 
     return result;
   }
-
 }

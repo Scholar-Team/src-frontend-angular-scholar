@@ -1,40 +1,51 @@
-import { BaseHttpService } from './../../../core/services/base-http.service';
-import { Person } from '@person/model/person-model';
-import { PersonEntity } from '@person/entity/person-entity';
-import { environment } from '@environments/environment';
+import { map } from 'rxjs/operators';
+import { Person } from './../model/Person-model';
+import { PersonEntity } from './../entity/Person-entity';
+import { DefaultResponse } from '@core/utils/default-response';
 import { Observable } from 'rxjs';
-import { PersonMapper } from './../mapper/person-mapper';
+import { PersonRepository } from './../repositories/Person-repository';
+import { PersonMapper } from './../mapper/Person-mapper';
 import { Injectable } from '@angular/core';
-import { mergeMap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonService {
 
-  mapper = new PersonMapper();
+  public mapper: PersonMapper;
 
   constructor(
-    public http: BaseHttpService,
-  ) { }
+    public baseService: PersonRepository
+  ) {
+    this.mapper = new PersonMapper();
+  }
 
-  public findAll(): Observable<Person> {
-    return this.http
-      .getAll<PersonEntity[]>(`${environment.url_api}/person`)
-      .pipe(mergeMap((x) => x.data))
-      .pipe(map((x) => this.mapper.entityToModel(x)));
+  public findAll(): Observable<DefaultResponse<PersonEntity>> {
+    return this.baseService.findAll();
   }
 
   public findById(id: number): Observable<Person> {
-    return this.http
-      .getAll<PersonEntity>(`${environment.url_api}/person/${id}`)
-      .pipe(map((x) => this.mapper.entityToModel(x.data)));
+    return this.baseService.findById(id)
+      .pipe(map(x => this.mapper.entityToModel(x.data)));
   }
 
-  /*public patchById(id: number, person: Person): Observable<Person> {
-    return this.http
-      .patch<PersonEntity>(`${environment.url_api}/person/${id}`)
-      .pipe(map((x) => this.mapper.entityToModel(x.data)));
-  }*/
+  public post(body: any): Observable<Person> {
+    return this.baseService.post(body)
+      .pipe(map(x => this.mapper.entityToModel(x.data)));
+  }
 
+  public putById(id: number, body: any): Observable<Person> {
+    return this.baseService.putById(id, body)
+      .pipe(map(x => this.mapper.entityToModel(x.data)));
+  }
+
+  public patchById(id: number, body: any): Observable<Person> {
+    return this.baseService.patchById(id, body)
+      .pipe(map(x => this.mapper.entityToModel(x.data)));
+  }
+
+  public deleteById(id: number): Observable<Person> {
+    return this.baseService.deleteById(id)
+      .pipe(map(x => this.mapper.entityToModel(x.data)));
+  }
 }

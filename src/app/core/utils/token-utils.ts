@@ -10,6 +10,7 @@ export class TokenUtils {
     this.jwtPayload = JSON.parse(atob(createdToken.split('.')[1]));
 
     localStorage.setItem('token', createdToken);
+    localStorage.setItem('person_id', this.jwtPayload.person_id.toString());
   }
 
   public static  removeToken(): void {

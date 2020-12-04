@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '@shared/shared.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { AngularTiltModule } from 'angular-tilt';
@@ -18,10 +17,11 @@ import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from './pages/landing/landing.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RegisterSchoolComponent } from './components/register-school/register-school.component';
+
 import { ModalComponent } from './components/modal/modal.component';
+import { RegisterSchoolComponent } from './components/register-school/register-school.component';
+import { RegisterDirectorComponent } from './components/register-director/register-director.component';
+import { SchoolModule } from '@modules/school/school.module';
 
 @NgModule({
   declarations: [
@@ -34,21 +34,19 @@ import { ModalComponent } from './components/modal/modal.component';
     TeamComponent,
     ContactComponent,
     LoginComponent,
+    ModalComponent,
     RegisterSchoolComponent,
-    ModalComponent
+    RegisterDirectorComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     LandingRoutingModule,
-    FontAwesomeModule,
-    DialogModule,
     ButtonModule,
     AngularTiltModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FileUploadModule
+    FileUploadModule,
+    DialogModule,
+    SchoolModule
   ]
 })
 export class LandingModule { }

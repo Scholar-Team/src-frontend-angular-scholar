@@ -1,7 +1,8 @@
-import { SchoolType } from '@school/model/school-model';
+import { School } from '@school/model/school-model';
+import { Router } from '@angular/router';
 import { SchoolService } from '@school/services/school.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { faGlobe, faSignature } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe, faSchool, faSignature } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
@@ -16,23 +17,20 @@ export class RegisterSchoolComponent implements OnInit {
 
   public faGlobe = faGlobe;
   public faSignature = faSignature;
+  public faSchool = faSchool;
 
-  public displayModal: boolean;
   public formGroup: FormGroup;
   public uploadedFile: any;
 
   constructor(
-    private service: SchoolService,
-    private formBuilder: FormBuilder
+    private schoolService: SchoolService,
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.initForm();
   }
 
   ngOnInit(): void { }
-
-  public showModalDialog(): void {
-    this.displayModal = true;
-  }
 
   private initForm(): void {
     this.formGroup = this.formBuilder.group({
@@ -43,7 +41,29 @@ export class RegisterSchoolComponent implements OnInit {
   }
 
   public registerSchool(): void {
+    const formData = new FormData();
 
+    const school: School = {
+      name: this.formGroup.value.name,
+      site: this.formGroup.value.site,
+      type: this.formGroup.value.type
+    };
+
+    const blobOverrides = new Blob([JSON.stringify(school)], {
+      type: 'application/json',
+    });
+
+    formData.append('school', blobOverrides);
+    formData.append('file', this.uploadedFile);
+
+    this.schoolService.post(formData).subscribe(r => {
+      console.log(r);
+      localStorage.setItem('school_id', `${r.id}`);
+      this.router.navigate(['../register-director']);
+
+    }, (error) => {
+      console.log(error);
+    });
   }
 
   public onFileChange(event: any): void {

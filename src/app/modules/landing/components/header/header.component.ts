@@ -1,5 +1,5 @@
-import { ModalComponent } from './../modal/modal.component';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalComponent } from '@modules/landing/components/modal/modal.component';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,14 +8,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @ViewChild('modalComponent')
-  private modalRef: ModalComponent;
+  @Input() modalComponent: ModalComponent;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   public openModal(): void {
-    this.modalRef.showModalDialog();
+    this.modalComponent.showModalDialog();
   }
 }

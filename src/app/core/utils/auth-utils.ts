@@ -16,11 +16,17 @@ export class AuthUtils {
   }
 
   public static getHeaderBearerToken(): string {
-    return `Basic ${localStorage.getItem('token')}`;
+    return `Bearer ${localStorage.getItem('token')}`;
   }
 
   public static getBodyToken(): string {
     return `token=${localStorage.getItem('token')}`;
+  }
+
+  public static getBearerHeader(): HttpHeaders {
+    return new HttpHeaders({
+      Authorization: AuthUtils.getHeaderBearerToken()
+    });
   }
 
   public static getAuthHeaders(): HttpHeaders {

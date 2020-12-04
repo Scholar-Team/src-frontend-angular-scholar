@@ -20,7 +20,20 @@ export class AuthService {
   public postLogin(username: string, password: string): object {
     return this.repository.postLogin(username, password).subscribe(response => {
       TokenUtils.saveToken(response.access_token);
-      this.router.navigate(['/home']);
+
+      for (const role of TokenUtils.jwtPayload.authorities) {
+        if (role === 'ROLE_PR') {
+          this.router.navigate(['/teacher']);
+        }
+
+        if (role === 'ROLE_AL') {
+          this.router.navigate(['/student']);
+        }
+
+        if (role === 'ROLE_DI') {
+          this.router.navigate(['/director']);
+        }
+      }
 
       }, (error) => {
         console.log(error.error.error_description);
