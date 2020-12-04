@@ -54,9 +54,6 @@ const routes: Routes = [
         component: RegisterPeriodComponent
       },
       {
-        path: 'periods',
-      },
-      {
         path: 'register-classroom',
         component: RegisterClassroomComponent
       },
