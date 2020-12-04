@@ -1,4 +1,4 @@
-:host ::ng-deep .uploadButton {
+/*:host ::ng-deep .uploadButton {
   background: #222A68;
   border: none
 }
@@ -285,4 +285,4 @@ button:hover {
     visibility: visible;
     opacity: 1;
   }
-}
+}*/
